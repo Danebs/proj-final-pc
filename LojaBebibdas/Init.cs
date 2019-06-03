@@ -12,7 +12,7 @@ namespace LojaDeBebidas
         {
             Application app = new Application();
 
-            Console.SetWindowSize(133, 50);
+            Console.SetWindowSize(125, 45);
             Console.Title = "Goblins - Soluções em bebidas";
 
 

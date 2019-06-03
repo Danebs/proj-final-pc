@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<users>
+  <user id="1" nome="Daniel" cpf="0000000000" cidade="Belo Horizonte" role="99" />
+  <user id="2" nome="Dubai" cpf="111111111111" cidade="TomorrowLand" role="1" />
+  <user id="3" nome="Tokyo" cpf="2222222222" cidade="Sao Paulo" role="1" />
+  <user id="4" nome="Mike Vegas" cpf="33333333333" cidade="Napoli" role="2" />
+  <user id="5" nome="Los Angels" cpf="44444444444" cidade="Santa Clara" role="2" />
+</users>

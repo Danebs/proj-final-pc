@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
+using LojaBebibdas.data;
 
 namespace LojaBebibdas.lib
 {
@@ -14,11 +15,12 @@ namespace LojaBebibdas.lib
 
         public bool Run()
         {
+            Console.WriteLine( User.Get_Users()); 
 
             ComponentesInterface.Logo();
             Thread.Sleep(1250);
 
-            ComponentesInterface.Loader(750, 15);
+            ComponentesInterface.Loader(750, 17);
             this.Login();
 
             do { this.MainMenu(); } while (this.is_Active); 
@@ -30,11 +32,13 @@ namespace LojaBebibdas.lib
 
         public bool Login()
         {
+      
+
             string nome, senha;
 
-            ComponentesInterface.PanelHeader();
+            ComponentesInterface.PanelHeader("Goblins - Login", "Faça seu login para utilizar a aplicação.");
 
-            Console.Write("\n Digite seu nome de usuário:");
+            Console.Write("\nDigite seu nome de usuário: ");
             nome = Console.ReadLine();
             Console.Write("Digite sua senha: ");
             Console.ForegroundColor = Console.BackgroundColor;
@@ -49,15 +53,20 @@ namespace LojaBebibdas.lib
         {
             ConsoleKey selected = ConsoleKey.Enter;
             
-
             do
             {
                 Console.Clear();
-                Console.WriteLine("-------------------------------------");
+
+                ComponentesInterface.PanelHeader("Goblins - Menu Principal", "Solução de caixa para bares e distribuidoras de bebidas");
                 // Common Options
 
                 // User Options
                 Console.WriteLine("(f1) - Caixa da Loja");
+                Console.WriteLine("(f2) - Monstruario");
+                Console.WriteLine("(f3) - Gestão de clientes");
+                Console.WriteLine("(f4) - Gestão de Funcionários");
+                Console.WriteLine("(f5) - Relatórios Financeiros");
+
                 // Funcion
 
                 // Root Options
@@ -77,6 +86,8 @@ namespace LojaBebibdas.lib
                     default:
                         continue;
                 }
+
+                ComponentesInterface.PanelFooter();
 
             } while (selected != ConsoleKey.F9);
         }

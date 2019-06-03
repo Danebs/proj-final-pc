@@ -43,19 +43,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="data\UserModel.cs" />
     <Compile Include="Init.cs" />
     <Compile Include="lib\Application.cs" />
     <Compile Include="lib\ComponentesInterface.cs" />
+    <Compile Include="lib\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="assets\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="data\entities\Users.xml" />
+    <Content Include="data\xml\Users.xml">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -9,12 +9,17 @@ namespace LojaBebibdas.lib
 {
     class ComponentesInterface
     {
-
-        public static void PanelHeader() {
-
-
+        public static void PanelHeader(string title = "Bem vindo", string subtitle = "Soluções em bares") {
+            Console.WriteLine("\t|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
+            Console.WriteLine("\t");
+            Console.WriteLine("\t\t\t\t\t{0}\n\t\t\t\t\t\t      ---", title.ToUpper());
+            Console.WriteLine("\t\t\t{0}", subtitle);
+            Console.WriteLine("\t");
+            Console.WriteLine("\t|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||\n\n");
         }
-        public static void PanelFooter() { }
+        public static void PanelFooter() {
+            Console.WriteLine("\n\n------- {0} -------", DateTime.Now);
+        }
 
         public static void Loader(int time = 500, int length = 100, string title = "Carregando...", ConsoleColor loaderColor = ConsoleColor.Green) {
             Console.CursorVisible = false;
@@ -38,24 +43,21 @@ namespace LojaBebibdas.lib
             Console.WriteLine("\n\n");
         }
         public static void Logo() {
-            Console.WriteLine("||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
-            Console.WriteLine("|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
-            Console.WriteLine("||||                                                                           _    ");
-            Console.WriteLine("||||    |||||||   ||||||    ||||||    |||     |||||| ||||  |||    ||||        /    ");
-            Console.WriteLine("||||   ||||||||| ||||||||| |||||||||  |||     |||||| ||||  |||   |||||||  \\__|___/ ");
-            Console.WriteLine("||||   |||    || |||   ||| |||   |||  |||      ||||  ||||| |||   |||||     \\    /");
-            Console.WriteLine("||||   |||       |||   ||| |||  |||   |||      ||||  |||||||||    ||||      \\  /");
-            Console.WriteLine("||||   |||       |||   ||| ||| ||     |||      ||||  ||| |||||     ||||      ||"); 
-            Console.WriteLine("||||   ||| ||||| |||   ||| |||||||    |||      ||||  |||  ||||      ||||     ||");
-            Console.WriteLine("||||   |||   ||| |||   ||| |||  |||   |||      ||||  |||  ||||   ||||||     _||_");
-            Console.WriteLine("||||   ||||||||  ||||||||| |||||||||  ||||||  |||||| |||  ||||  ||||||     /    \\");
-            Console.WriteLine("||||   ||||||      |||||   |||||||    ||||||  |||||| |||  ||||   ||||     /______\\");
-            Console.WriteLine("||||   ");
-            Console.WriteLine("|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
-            Console.WriteLine("||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
-
+            Console.WriteLine("\t||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
+            Console.WriteLine("\t||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
+            Console.WriteLine("\t\t                                                                         _    ");
+            Console.WriteLine("\t\t ||||||    ||||||    ||||||    |||     |||||| ||||  |||    ||||        /    ");
+            Console.WriteLine("\t\t||||||||| ||||||||| |||||||||  |||     |||||| ||||  |||   |||||||  \\__|___/ ");
+            Console.WriteLine("\t\t|||    || |||   ||| |||   |||  |||      ||||  ||||| |||   |||||     \\    /");
+            Console.WriteLine("\t\t|||       |||   ||| |||  |||   |||      ||||  |||||||||    ||||      \\  /");
+            Console.WriteLine("\t\t|||       |||   ||| ||| ||     |||      ||||  ||| |||||     ||||      ||"); 
+            Console.WriteLine("\t\t||| ||||| |||   ||| |||||||    |||      ||||  |||  ||||      ||||     ||");
+            Console.WriteLine("\t\t|||   ||| |||   ||| |||  |||   |||      ||||  |||  ||||   ||||||     _||_");
+            Console.WriteLine("\t\t||||||||  ||||||||| |||||||||  ||||||  |||||| |||  ||||  ||||||     /    \\");
+            Console.WriteLine("\t\t |||||      |||||   |||||||    ||||||  |||||| |||  ||||   ||||     /______\\");
+            Console.WriteLine("\t                                                                                              ");
+            Console.WriteLine("\t||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
+            Console.WriteLine("\t||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
         }
-
-
     }
 }
