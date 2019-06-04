@@ -15,7 +15,6 @@ namespace LojaDeBebidas
             Console.SetWindowSize(125, 45);
             Console.Title = "Goblins - Soluções em bebidas";
 
-
             while (app.Run()) { GC.Collect(); };
 
             Console.WriteLine("\n\nPressione qualquer tecla para finalizar a aplicação.");

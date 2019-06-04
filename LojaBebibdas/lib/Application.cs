@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using LojaBebibdas.data;
+using LojaDeBebidas.data.entidades;
 
 namespace LojaBebibdas.lib
 {
@@ -13,18 +15,32 @@ namespace LojaBebibdas.lib
         private bool is_Active = true;
 
 
+        public void debugArea()
+        {
+            UserModel Users = new UserModel();
+
+            foreach (User user in Users.All()) 
+            {
+                if(user != null)
+                {
+                    Console.WriteLine(user.Nome);
+                }
+             
+            }
+        }
+
         public bool Run()
         {
-            Console.WriteLine( User.Get_Users()); 
+
+            this.debugArea();
 
             ComponentesInterface.Logo();
             Thread.Sleep(1250);
 
-            ComponentesInterface.Loader(750, 17);
+            ComponentesInterface.Loader(750, 17, "Bem vindo ao Goblins, aguarde enquanto carregamos...", ConsoleColor.Cyan);
             this.Login();
 
             do { this.MainMenu(); } while (this.is_Active); 
-
 
             return this.is_Active;
         }
@@ -32,8 +48,6 @@ namespace LojaBebibdas.lib
 
         public bool Login()
         {
-      
-
             string nome, senha;
 
             ComponentesInterface.PanelHeader("Goblins - Login", "Faça seu login para utilizar a aplicação.");

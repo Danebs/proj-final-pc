@@ -42,22 +42,27 @@ namespace LojaBebibdas.lib
 
             Console.WriteLine("\n\n");
         }
-        public static void Logo() {
+        public static void Logo(ConsoleColor corPrimaria = ConsoleColor.DarkMagenta, ConsoleColor corSecundaria = ConsoleColor.White) {
+            Console.ForegroundColor = corSecundaria;
+            Console.WriteLine("\t||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");    
             Console.WriteLine("\t||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
-            Console.WriteLine("\t||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
+            Console.ForegroundColor = corPrimaria;
             Console.WriteLine("\t\t                                                                         _    ");
             Console.WriteLine("\t\t ||||||    ||||||    ||||||    |||     |||||| ||||  |||    ||||        /    ");
             Console.WriteLine("\t\t||||||||| ||||||||| |||||||||  |||     |||||| ||||  |||   |||||||  \\__|___/ ");
             Console.WriteLine("\t\t|||    || |||   ||| |||   |||  |||      ||||  ||||| |||   |||||     \\    /");
             Console.WriteLine("\t\t|||       |||   ||| |||  |||   |||      ||||  |||||||||    ||||      \\  /");
-            Console.WriteLine("\t\t|||       |||   ||| ||| ||     |||      ||||  ||| |||||     ||||      ||"); 
+            Console.WriteLine("\t\t|||       |||   ||| ||| ||     |||      ||||  ||| |||||     ||||      ||");
             Console.WriteLine("\t\t||| ||||| |||   ||| |||||||    |||      ||||  |||  ||||      ||||     ||");
             Console.WriteLine("\t\t|||   ||| |||   ||| |||  |||   |||      ||||  |||  ||||   ||||||     _||_");
             Console.WriteLine("\t\t||||||||  ||||||||| |||||||||  ||||||  |||||| |||  ||||  ||||||     /    \\");
             Console.WriteLine("\t\t |||||      |||||   |||||||    ||||||  |||||| |||  ||||   ||||     /______\\");
             Console.WriteLine("\t                                                                                              ");
+            Console.ForegroundColor = corSecundaria;
             Console.WriteLine("\t||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
             Console.WriteLine("\t||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
+
+            Console.ResetColor();
         }
     }
 }

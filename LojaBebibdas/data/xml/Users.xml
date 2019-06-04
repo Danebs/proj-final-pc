@@ -6,4 +6,8 @@
   <user id="3" nome="Tokyo" cpf="2222222222" cidade="Sao Paulo" role="1" />
   <user id="4" nome="Mike Vegas" cpf="33333333333" cidade="Napoli" role="2" />
   <user id="5" nome="Los Angels" cpf="44444444444" cidade="Santa Clara" role="2" />
+  <user id="6" nome="Torronto" cpf="515.323.515-49" cidade="Napoli" role="2" />
+  <user id="7" nome="Nova Jersey" cpf="44444444444" cidade="Santa Clara" role="2" />
+  <user id="8" nome="Moscou" cpf="33333333333" cidade="Napoli" role="2" />
+  <user id="9" nome="Pequim" cpf="44444444444" cidade="Santa Clara" role="2" />
 </users>
