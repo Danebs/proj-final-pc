@@ -14,6 +14,8 @@ namespace LojaBebibdas.data
     // Essa classe é responsável por armazenar o conjunto de usuários
     class UserModel
     {
+        protected const string DATA_PATH = @"..\\..\\data/xml/Users.xml";
+
         // Array da Classe User
         protected User[] Users = new User[] { };
 
@@ -68,7 +70,7 @@ namespace LojaBebibdas.data
             List<User> usersList = new List<User>();
 
             // Criamos um instância do (XElement) que é uma classe responsável por ler um arquivo xml e escrever nele
-            XElement xml = XElement.Load(@"..\\..\\data/xml/Users.xml");
+            XElement xml = XElement.Load(DATA_PATH);
 
             // Enquanto houver elementos no arquivo ele vai percorrendo e adicionando valores 
             foreach (XElement x in xml.Elements())
@@ -79,7 +81,8 @@ namespace LojaBebibdas.data
                 // Seta o email caso exista se não, seta vazio
                 user.Email = ( x.Attribute("email") != null ) ? x.Attribute("email").Value.ToString() : null;
                 user.Cidade = ( x.Attribute("cidade") != null ) ? x.Attribute("cidade").Value.ToString() : null;
-                user.Password = (x.Attribute("password") != null) ? x.Attribute("password").Value : "";
+                user.Senha = (x.Attribute("password") != null) ? x.Attribute("password").Value : "";
+                user.Role = (x.Attribute("role") != null) ? x.Attribute("role").Value : null;
 
                 // E adiciono ele a lista
                 usersList.Add(user);
@@ -89,6 +92,51 @@ namespace LojaBebibdas.data
             User[] usersArray = usersList.ToArray();
             return usersArray;
         }
+
+        public User Save(User user = null)
+        {
+            XDocument xmlDoc = XDocument.Load(DATA_PATH);
+            var elems = from item in xmlDoc.Elements("Users").Elements("user")
+                        where item != null && (Convert.ToInt32(item.Attribute("id").Value) == user.Codigo)
+                        select item;
+         
+            foreach (XElement elem in elems) 
+            {
+                elem.Attribute("id").Value = user.Codigo.ToString();
+                elem.Attribute("nome").Value = user.Nome;
+                elem.Attribute("email").Value = user.Email;
+                elem.Attribute("cpf").Value = user.Cpf;
+                elem.Attribute("cidade").Value = user.Cidade;
+            }
+
+            xmlDoc.Save(DATA_PATH);
+
+            return user;
+        }
+
+        public bool Create(User user)
+        {
+            XDocument xmlDoc = XDocument.Load(DATA_PATH);
+            xmlDoc.Elements("Users").Last().Add(
+                new XElement("user", new XAttribute("id", xmlDoc.Elements("Users").Elements("user").Count() + 1),
+                     new XAttribute("nome", user.Nome),
+                        new XAttribute("cpf", user.Cpf),
+                          new XAttribute("password", user.Senha),
+                            new XAttribute("cidade", user.Cidade),
+                              new XAttribute("role", 0)
+             ));
+
+            try {
+                xmlDoc.Save("d:/data.xml");
+                return true;
+            }
+            catch (Exception ex) {
+                Console.WriteLine(ex);
+                return false;
+            }
+           
+        }
+
 
 
       

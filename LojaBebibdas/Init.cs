@@ -10,10 +10,9 @@ namespace LojaDeBebidas
     {
         static void Main(string[] args)
         {
-            Application app = new Application();
-
-            Console.SetWindowSize(125, 45);
             Console.Title = "Goblins - Soluções em bebidas";
+
+            Application app = new Application();
 
             while (app.Run()) { GC.Collect(); };
 

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using LojaDeBebidas.data.entidades;
 
 namespace LojaBebibdas.lib
 {
@@ -12,7 +13,7 @@ namespace LojaBebibdas.lib
         public static void PanelHeader(string title = "Bem vindo", string subtitle = "Soluções em bares") {
             Console.WriteLine("\t|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
             Console.WriteLine("\t");
-            Console.WriteLine("\t\t\t\t\t{0}\n\t\t\t\t\t\t      ---", title.ToUpper());
+            Console.WriteLine("\t\t\t\t\t{0}\n\t\t\t\t\t---------------", title.ToUpper());
             Console.WriteLine("\t\t\t{0}", subtitle);
             Console.WriteLine("\t");
             Console.WriteLine("\t|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||\n\n");
@@ -90,13 +91,21 @@ namespace LojaBebibdas.lib
             Console.ResetColor();
         }
 
+        public static void PanelInfoUser(User user)
+        {
+            Console.WriteLine("****************************************");
+            Console.WriteLine("**** Login: {0}", user.Codigo);
+            Console.WriteLine("**** Cidade: {0}", user.Cidade);
+            Console.WriteLine("**** Acesso: {0}", user.Role);
+            Console.WriteLine("***************************************");
+
+        }
 
         public static void ChangeTextColor(string text, ConsoleColor corConsole = ConsoleColor.White)
         {
             Console.ForegroundColor = corConsole;
             Console.WriteLine(text);
-            Console.ResetColor();
-            
+            Console.ResetColor(); 
         }
     }
 }

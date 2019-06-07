@@ -10,8 +10,10 @@ using LojaDeBebidas.data.entidades;
 
 namespace LojaBebibdas.lib
 {
-    class Application : Autenticador
+    class Application
     {
+        protected User UserLogged;
+        public static string AppName = "Hey!Bar";
         protected ConsoleColor AppTheme = ConsoleColor.DarkGreen;
         private bool is_Active = true;
 
@@ -20,14 +22,7 @@ namespace LojaBebibdas.lib
         public void debugArea()
         {
             UserModel Users = new UserModel();
-
-            foreach (User user in Users.All()) 
-            {
-                if(user != null)
-                {
-                    Console.WriteLine("Olá {0} - bem vindo da cidade de: {1}", user.Nome, user.Cidade);
-                }           
-            }
+           
         }
 
         // Esse é o método que executa a aplicação
@@ -35,57 +30,92 @@ namespace LojaBebibdas.lib
         {
             // @ Função: Testar a aplicação no contexto atual
             // this.debugArea();
-
             ComponentesInterface.OficialLogo(this.AppTheme);
             Thread.Sleep(1250);
 
             // @ Função: exibir Loader
-            ComponentesInterface.Loader(750, 17, "Bem vindo ao Goblins, aguarde enquanto carregamos...", this.AppTheme);
-            this.Login();
+            ComponentesInterface.Loader(750, 17, "Bem vindo ao " + AppName + " aguarde enquanto carregamos...", this.AppTheme);
+            Autenticador Auth = new Autenticador();
+            
+            if (!Auth.Login())
+                return !this.is_Active;
 
-            // @ Função: exibir menu
-            do { this.MainMenu(); } while (this.is_Active); 
+            UserLogged = Auth.UserSession;
+     
+            do {
+                switch (UserLogged.Role)
+                {
+                    case "Root":
+                        this.MenuRoot();
+                        break;
+                    case "Funcionario":
+                        this.MenuStaff();
+                        break;
+                    default:
+                        this.MenuClient();
+                        break;
+                }
+            } while (this.is_Active);
 
-            // @Função: Desabilitar a aplicação 
             return this.is_Active;
+          
         }
 
+        protected void MenuClient() {
+            ConsoleKey menuOption = ConsoleKey.Enter;
+            Console.Clear();
 
-        public bool Login()
-        {
-            string nome, senha;
+            ComponentesInterface.PanelHeader(AppName + " - Menu Principal", "Solução de caixa para bares e distribuidoras de bebidas");
+            ComponentesInterface.PanelInfoUser(UserLogged);
+            // Common Options
 
-            ComponentesInterface.PanelHeader("Goblins - Login", "Faça seu login para utilizar a aplicação.");
+            // User Options
+            Console.WriteLine("Você é usuário!!! Muito obrigado por participar");
+            // Root Options
+            Console.WriteLine("\n\n(f1) - Ajuda do sistema");
+
+            this.is_Active = false;
+        }
+        protected void MenuStaff() {
+            ConsoleKey menuOption = ConsoleKey.Enter;
 
             do
             {
-                for (int i = 0; i < 3; i++)
+                Console.Clear();
+
+                ComponentesInterface.PanelHeader(AppName + " - Menu Principal", "Software de Gestão para bares");
+                // Common Options
+                ComponentesInterface.PanelInfoUser(UserLogged);
+                // User Options
+                Console.WriteLine("(1) - Monstruario"); // Ai entra a classe do João
+                Console.WriteLine("(2) - Gestão de Cliente"); // Aqui entra a classe do Vitor "Mostruario/Estoque"
+                Console.WriteLine("(3) - Gestão de Produtos"); // Aqui é a gestão do cliente do Yury
+                // Root Options
+                Console.WriteLine("\n\n(f1) - Ajuda do sistema   (f9) - Sair do Sistema");
+
+                Console.WriteLine("-----------------------------------------------------");
+                Console.Write("\nPressione a tecla correspondente a opção Desejada:");
+                Console.WriteLine("\n-----------------------------------------------------");
+
+                ComponentesInterface.PanelFooter();
+                menuOption = Console.ReadKey().Key;
+
+                // @Função: 
+                switch (menuOption)
                 {
-                    Console.Write("\nDigite seu nome de usuário: ");
-                    nome = Console.ReadLine();
-                    Console.Write("Digite sua senha: ");
-                    Console.ForegroundColor = Console.BackgroundColor;
-                    senha = Console.ReadLine();
-                    Console.ResetColor();
+                    case ConsoleKey.F1:
+                        break;
 
-                    if (AuthUser(nome, senha))
-                    {
-                        Console.WriteLine("Bem vindo {0}", UserSession.Nome);
-                        Console.WriteLine("\nSucesso !!!");
-                        Console.ResetColor();
-                        return true;
-                    }
-                    else { Console.WriteLine("Usuário ou senha digitado estão incorretos!"); }
-
-                    Console.WriteLine((UserSession != null) ? UserSession.Cpf : "");
+                    case ConsoleKey.F9:
+                        this.is_Active = false;
+                        break;
+                    default:
+                        continue;
                 }
-
-
-                Console.WriteLine("Esqueci minha senha");
-            } while (true);    
+            } while (menuOption != ConsoleKey.F9);
         }
-
-        public void MainMenu()
+  
+        protected void MenuRoot()
         {
             ConsoleKey menuOption = ConsoleKey.Enter;
             
@@ -97,11 +127,11 @@ namespace LojaBebibdas.lib
                 // Common Options
 
                 // User Options
-                Console.WriteLine("(f1) - Caixa da Loja"); // Ai entra a classe do João
-                Console.WriteLine("(f2) - Monstruario"); // Aqui entra a classe do Vitor "Mostruario/Estoque"
-                Console.WriteLine("(f3) - Gestão de clientes"); // Aqui é a gestão do cliente do Yury
-                Console.WriteLine("(f4) - Gestão de Funcionários"); // Aqui a gestão de funcionário do Venezuela
-                Console.WriteLine("(f5) - Relatórios Financeiros"); // Aqui o financeiro
+                Console.WriteLine("(1) - Caixa da Loja"); // Ai entra a classe do João
+                Console.WriteLine("(2) - Monstruario"); // Aqui entra a classe do Vitor "Mostruario/Estoque"
+                Console.WriteLine("(3) - Gestão de clientes"); // Aqui é a gestão do cliente do Yury
+                Console.WriteLine("(4) - Gestão de Funcionários"); // Aqui a gestão de funcionário do Venezuela
+                Console.WriteLine("(5) - Relatórios Financeiros"); // Aqui o financeiro
 
                 // Precisamos alimentar esses metodos com as ações
          
@@ -109,7 +139,7 @@ namespace LojaBebibdas.lib
                 // Funcion
 
                 // Root Options
-                Console.WriteLine("\n\n(f7) - Ajuda do sistema   (f9) - Sair do Sistema");
+                Console.WriteLine("\n\n(f1) - Ajuda do sistema   (f9) - Sair do Sistema");
 
                 Console.WriteLine("-----------------------------------------------------");
                 Console.Write("\nPressione a tecla correspondente a opção Desejada:");
@@ -120,6 +150,8 @@ namespace LojaBebibdas.lib
                 // @Função: 
                 switch (menuOption)
                 {
+                    case ConsoleKey.F1:
+                        break;
 
                     case ConsoleKey.F9:
                         this.is_Active = false;
@@ -132,6 +164,9 @@ namespace LojaBebibdas.lib
 
             } while (menuOption != ConsoleKey.F9);
         }
+
+       
+
 
 
     }

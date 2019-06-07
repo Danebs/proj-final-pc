@@ -1,7 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-
-<users>
-  <user id="1" nome="Daniel" email="danbsilv@gmail.com" cpf="0000000000" cidade="Belo Horizonte" role="99" password="123456" />
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Users>
+  <user id="1" nome="Kurt Cobain" email="danbsilv@gmail.com" cpf="223.455.577.855-56" cidade="Belo Horizonte" role="99" password="123456" />
   <user id="2" nome="Dubai" email="exemple@gmail.com" cpf="111111111111" cidade="TomorrowLand" role="1" />
   <user id="3" nome="Tokyo" email="tokyoghoul@tk.com" cpf="2222222222" cidade="Sao Paulo" role="1" />
   <user id="4" nome="Mike Vegas" cpf="33333333333" cidade="Napoli" role="2" />
@@ -11,4 +10,4 @@
   <user id="8" nome="Moscou" cpf="33333333333" cidade="Napoli" role="2" />
   <user id="9" nome="Pequim" cpf="44444444444" cidade="Santa Clara" role="2" />
   <user id="10" nome="Joao Bosco" cpf="125.552.233-25" cidade="Porto Rico" role="2" />
-</users>
+</Users>

@@ -8,16 +8,36 @@ namespace LojaDeBebidas.data.entidades
 {
     class User
     {
+        public enum UserRoles { Root = 99, Staff = 2, Client = 1};
         // Essa classe é responsável por manter a estrutura de um usuário com as ações dele e propriedades
         public int Codigo { get; set; }
         public string Nome { get; set; }
         public string Cpf { get; set; }
         public string Email { get; set; }
         public string Cidade { get; set; }
-        protected string Senha;
-        public string Password {
-            get { return this.Senha;  }
-            set { this.Senha = value; }
+        protected string Password;
+        public string Senha {
+            get { return this.Password.ToString();  }
+            set { this.Password = value.ToString(); }
+        }
+        private UserRoles AccessLevel;
+
+        public string Role {
+            get { return this.AccessLevel.ToString();  }
+            set
+            {
+                switch (Convert.ToInt32(value)) {
+                    case 2:
+                        this.AccessLevel = UserRoles.Staff;
+                        break;
+                    case 99:
+                        this.AccessLevel = UserRoles.Root;
+                        break;
+                    default:
+                        this.AccessLevel = UserRoles.Client;
+                        break;
+                }
+            }
         }
 
         // Esse método chamando o nome dá própria classe se chama construtor (Ele executa quando a classe inicializa uma instância)
