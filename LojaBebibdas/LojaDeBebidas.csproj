@@ -47,12 +47,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="data\entidades\Help.cs" />
+    <Compile Include="data\entidades\Product.cs" />
     <Compile Include="data\entidades\User.cs" />
+    <Compile Include="data\HelpModel.cs" />
+    <Compile Include="data\StockModel.cs" />
     <Compile Include="data\UserModel.cs" />
     <Compile Include="Init.cs" />
     <Compile Include="lib\Application.cs" />
     <Compile Include="lib\Autenticador.cs" />
-    <Compile Include="lib\ComponentesInterface.cs" />
+    <Compile Include="lib\Cashier.cs" />
+    <Compile Include="lib\ClientsManager.cs" />
+    <Compile Include="lib\UIComponents.cs" />
+    <Compile Include="lib\FAQ.cs" />
+    <Compile Include="lib\Financial.cs" />
+    <Compile Include="lib\Stock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -60,11 +69,10 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="assets\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="data\xml\Help.xml" />
+    <Content Include="data\xml\Helps.xml" />
+    <Content Include="data\xml\Products.xml" />
     <Content Include="data\xml\Users.xml">
       <SubType>Designer</SubType>
     </Content>

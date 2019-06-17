@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<FAQ>
+  <question id="1" title="Como fazer Login"  category="1">
+    Para fazer login basta pedir ao administrador do sistema para registrar sua conta e acessar utilizando seu login e senha.
+  </question>
+  <question id="2" title="Entendendo o menu"  category="1">
+    O menu é apresentado de 3 maneiras difenters.
+  </question>
+</FAQ>

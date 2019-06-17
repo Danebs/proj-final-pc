@@ -9,7 +9,7 @@ using System.Xml.Schema;
 using System.Xml.Linq;
 using LojaDeBebidas.data.entidades;
 
-namespace LojaBebibdas.data
+namespace LojaDeBebidas.data
 {
     // Essa classe é responsável por armazenar o conjunto de usuários
     class UserModel
@@ -62,7 +62,6 @@ namespace LojaBebibdas.data
 
             return user;
         }
-
 
         // Aqui usamos um método pra carregar os dados do arquivo
         private User[] LoadUsers() {
@@ -136,11 +135,5 @@ namespace LojaBebibdas.data
             }
            
         }
-
-
-
-      
-
-
     }
 }

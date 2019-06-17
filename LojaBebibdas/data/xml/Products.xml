@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Products>
+  <product id="1" category="Bebidas" name="Vodka Smirnoff                 " description="Garrafa de vodka; teor alcoólico 37,5%; 998ml" quantity="15" price="29,99"/>
+  <product id="2" category="Bebidas" name="Cerveja Amstel                 " description="Lata de cerveja; teor alcoólico 4,2%; 437ml" quantity="30" price="3,20"/>
+  <product id="3" category="Bebidas" name="Vinho Barolo Patres 2014       " description="Garrafa de vinho tinto italiano; teor alcoólico 14,50%; 750ml" price="199,99"/>
+  <product id="4" category="Bebidas" name="Refrigerante Coca-Cola         " description="Lata de refrigerante; 350ml;" quantity="40" price="4,50"/>
+  <product id="5" category="Bebidas" name="Água Mineral Crystal           " description="Garrafa de água mineral; 500ml;" quantity="12" price="2,50"/>
+  <product id="6" category="Alimentação" name="Pizza Gigante 4 sabores    " description="Pizza com sabores: portuguesa, lombinho, frango a bolognesa e 4 queijos" quantity="7" price="39,99"></product>
+  <product id="7" category="Alimentação" name="Feijão Tropeiro            " description="Feijão tropeiro tradicional com bastante bacon e linguiça de porco; porção de 300g" quantity="10" price="19,99"></product>
+  <product id="8" category="Alimentação" name="Espetinho                  " description="3 espetinhos com: coração, porco e medalhão de frango;" quantity="14" price="4,99"/>
+  <product id="9" category="Alimentação" name="Isca de peixe com batata   " description="Porção de iscas de peixe com batatas fritas; porção 450g" quantity="10" price="34,99"/>
+  <product id="10" category="Alimentação" name="Porções variadas          " description="Porções de: mandioca, batata, picanha, alcatra, lagarto, fígado, isca de peixe, linguiça; 150g;" quantity="10" price="19,99"/>
+  <product id="11" category="Outros" name="Bala Tic Tac                   " description="Embalagem com balas de menta; 8,7g" quantity="10" price="0,99" />
+  <product id="12" category="Outros" name="Chiclete Trident               " description="Chiclete sabor morango; 8g;" quantity="10" price="0,99" />
+  <product id="13" category="Outros" name="Salgados                       " description="Coxinha, bolinho de carne, bolinho de bacalhau;" quantity="12" price="2,99"/>
+  <product id="14" category="Outros" name="Canecas personalizados Hey Bar!" description="Canecas de plástico com nossa logomarca; 450ml;" quantity="10" price="6,99"/>
+  <product id="15" category="Outros" name="Caldos                         " description="Caldos de mandioca e feijão; 350ml;" quantity="25" price="9,99"/>
+</Products>

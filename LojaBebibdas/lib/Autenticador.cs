@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LojaBebibdas.data;
+using LojaDeBebidas.data;
 using LojaDeBebidas.data.entidades;
 
-namespace LojaBebibdas.lib
+namespace LojaDeBebidas.lib
 {
     class Autenticador : UserModel
     {
@@ -18,8 +18,6 @@ namespace LojaBebibdas.lib
 
             if (user != null && user.ValidatePassword(password)) { 
                 this.UserSession = user;
-                Console.WriteLine(user);
-                Console.WriteLine(UserSession.Codigo);
                 return true;
             } else { 
                 return false;
@@ -41,7 +39,7 @@ namespace LojaBebibdas.lib
         {
             string nome, senha;
 
-            ComponentesInterface.PanelHeader(Application.AppName + " - Login", "Faça seu login para utilizar a aplicação:");
+            UIComponents.PanelHeader(Application.AppName + " - Login", "Faça seu login para utilizar a aplicação:");
 
             do
             {
@@ -87,6 +85,7 @@ namespace LojaBebibdas.lib
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine("\tSua cadastro não foi encontrado =( ");
                     Console.ResetColor();
+                    return false;
                 }
       
                

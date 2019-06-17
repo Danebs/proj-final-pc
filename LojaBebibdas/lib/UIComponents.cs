@@ -6,20 +6,23 @@ using System.Threading;
 using System.Threading.Tasks;
 using LojaDeBebidas.data.entidades;
 
-namespace LojaBebibdas.lib
+namespace LojaDeBebidas.lib
 {
-    class ComponentesInterface
+    class UIComponents
     {
         public static void PanelHeader(string title = "Bem vindo", string subtitle = "Soluções em bares") {
-            Console.WriteLine("\t|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
-            Console.WriteLine("\t");
-            Console.WriteLine("\t\t\t\t\t{0}\n\t\t\t\t\t---------------", title.ToUpper());
+            Console.WriteLine("\n\n||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
+ 
+            Console.WriteLine("\n\t\t\t\t\t{0}", title.ToUpper());
             Console.WriteLine("\t\t\t{0}", subtitle);
-            Console.WriteLine("\t");
-            Console.WriteLine("\t|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||\n\n");
+          
+            Console.WriteLine("\n||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||\n\n");
         }
-        public static void PanelFooter() {
-            Console.WriteLine("\n\n------- {0} -------", DateTime.Now);
+        public static void PanelFooter(string menu_options = "(f1) - Ajuda do sistema | (f9) - Sair do Sistema") {
+            Console.WriteLine("--------------------------------------------------------------------------------");
+            Console.WriteLine("\n\n{0}", menu_options);
+            Console.WriteLine("--------------------------------------------------------------------------------");
+            Console.WriteLine("\n\n\t\t------- {0}/{1}/{2} às {3}h{4} -------", DateTime.Now.Day.ToString("D2"), DateTime.Now.Month.ToString("D2"), DateTime.Now.Year, DateTime.Now.Hour, DateTime.Now.Minute);
         }
 
         public static void Loader(int time = 500, int length = 100, string title = "Carregando...", ConsoleColor loaderColor = ConsoleColor.Green) {
@@ -47,20 +50,20 @@ namespace LojaBebibdas.lib
         public static void OficialLogo(ConsoleColor corPrimaria = ConsoleColor.DarkRed, ConsoleColor corSecundaria = ConsoleColor.White)
         {
             Console.ForegroundColor = corSecundaria;
-            Console.WriteLine("\n\t||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||\n");
+            Console.WriteLine("\n\t|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||\n");
             Console.ForegroundColor = corPrimaria;
-            Console.WriteLine("\t\t|||   ||| ||||||||| |||      |||   |||||||    |||||||   |||||||         |||       |||");
-            Console.WriteLine("\t\t|||   ||| ||||||||| ||||    ||||   |||  |||  |||   |||  ||||||||        |||~~~~~~~|||||||");
-            Console.WriteLine("\t\t|||   ||| |||        ||||||||||    |||  |||  |||   |||  |||   |||       |||       |||  |||");
+            Console.WriteLine("\t\t|||   ||| ||||||||| |||      ||| ||||  |||||||    |||||||   |||||||         |||       |||");
+            Console.WriteLine("\t\t|||   ||| ||||||||| ||||    |||| ||||  |||  |||  |||   |||  ||||||||        |||~~~~~~~|||||||");
+            Console.WriteLine("\t\t|||   ||| |||        ||||||||||  ||||  |||  |||  |||   |||  |||   |||       |||       |||  |||");
             Console.ForegroundColor = corSecundaria;
-            Console.WriteLine("\t\t||||||||| |||||||||     |||        ||| |||   |||||||||  |||   ||||      |||       |||  |||");
-            Console.WriteLine("\t\t||||||||| |||||||||     |||        |||||||   |||||||||  |||||||||       |||       |||  |||");
-            Console.WriteLine("\t\t|||   ||| |||           |||        |||  |||  |||   |||  |||  |||        |||       |||||||");
+            Console.WriteLine("\t\t||||||||| |||||||||     |||      ||||  ||| |||   |||||||||  |||   ||||      |||       |||  |||");
+            Console.WriteLine("\t\t||||||||| |||||||||     |||      ||||  |||||||   |||||||||  |||||||||       |||       |||  |||");
+            Console.WriteLine("\t\t|||   ||| |||           |||            |||  |||  |||   |||  |||  |||        |||       |||||||");
             Console.ForegroundColor = corPrimaria;
-            Console.WriteLine("\t\t|||   ||| |||   |||    ||||||      |||   ||| |||   |||  |||   |||       |||       |||  ");
-            Console.WriteLine("\t\t|||   ||| ||||||||| |||||||||||    ||||||||  |||   |||  |||    |||      \\\\\\======///");
-            Console.ForegroundColor = corSecundaria;
-            Console.WriteLine("\n\t|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||\n");
+            Console.WriteLine("\t\t|||   ||| |||   |||    ||||||    ||||  |||   ||| |||   |||  |||   |||       |||       |||  ");
+            Console.WriteLine("\t\t|||   ||| ||||||||| |||||||||||  ||||  ||||||||  |||   |||  |||    |||      \\\\\\======////");
+           
+            Console.WriteLine("\n\t||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||\n");
             Console.ResetColor();
         }
 
@@ -93,11 +96,11 @@ namespace LojaBebibdas.lib
 
         public static void PanelInfoUser(User user)
         {
-            Console.WriteLine("****************************************");
-            Console.WriteLine("**** Login: {0}", user.Codigo);
-            Console.WriteLine("**** Cidade: {0}", user.Cidade);
-            Console.WriteLine("**** Acesso: {0}", user.Role);
-            Console.WriteLine("***************************************");
+            Console.WriteLine("* ***************************************");
+            Console.WriteLine("* *** Login: {0}", user.Codigo);
+            Console.WriteLine("* *** Acesso: {0}", user.Role);
+            Console.WriteLine("* *** Sua cidade: {0}", user.Cidade);
+            Console.WriteLine("* **************************************");
 
         }
 
