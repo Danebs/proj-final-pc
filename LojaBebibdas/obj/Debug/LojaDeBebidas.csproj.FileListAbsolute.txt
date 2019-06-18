@@ -1,0 +1,7 @@
+C:\Users\danbs\source\repos\LojaBebibdas\LojaBebibdas\obj\Debug\LojaDeBebidas.csprojAssemblyReference.cache
+C:\Users\danbs\source\repos\LojaBebibdas\LojaBebibdas\obj\Debug\LojaDeBebidas.csproj.CoreCompileInputs.cache
+C:\Users\danbs\source\repos\LojaBebibdas\LojaBebibdas\bin\Debug\LojaDeBebidas.exe.config
+C:\Users\danbs\source\repos\LojaBebibdas\LojaBebibdas\bin\Debug\LojaDeBebidas.exe
+C:\Users\danbs\source\repos\LojaBebibdas\LojaBebibdas\bin\Debug\LojaDeBebidas.pdb
+C:\Users\danbs\source\repos\LojaBebibdas\LojaBebibdas\obj\Debug\LojaDeBebidas.exe
+C:\Users\danbs\source\repos\LojaBebibdas\LojaBebibdas\obj\Debug\LojaDeBebidas.pdb

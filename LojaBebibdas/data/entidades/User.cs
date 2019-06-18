@@ -13,9 +13,11 @@ namespace LojaDeBebidas.data.entidades
         public int Codigo { get; set; }
         public string Nome { get; set; }
         public string Cpf { get; set; }
-        public string Email { get; set; }
+        public string Email = null;
         public string Cidade { get; set; }
-        protected string Password;
+        public string Telefone { get; set; }
+        protected string Password = "";
+
         public string Senha {
             get { return this.Password.ToString();  }
             set { this.Password = value.ToString(); }
@@ -43,9 +45,8 @@ namespace LojaDeBebidas.data.entidades
         // Esse método chamando o nome dá própria classe se chama construtor (Ele executa quando a classe inicializa uma instância)
         // Nesse caso ela obriga a classe Usuario a começar com um código, um nome e um cpf
         // Vamos ver esses dados na prática
-        public User (int codigo, string nome, string cpf)
+        public User (string nome, string cpf)
         {
-            this.Codigo = codigo;
             this.Nome = nome.ToUpper();
             this.Cpf = cpf;
         }

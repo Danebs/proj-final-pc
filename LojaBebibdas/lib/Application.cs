@@ -21,14 +21,10 @@ namespace LojaDeBebidas.lib
         // e pegar os resultados antes da aplicação executar
         public void debugArea()
         {
-            StockModel stock = new StockModel();
+            ClientsModel clientModel = new ClientsModel();
+            Console.WriteLine(clientModel.Edit(11,"yury").Nome);
+            clientModel.All();
 
-            foreach(Product prod in stock.All())
-            {
-                Console.WriteLine("Name: {0}", prod.Name);
-                Console.WriteLine("Price: {0}", prod.Price);
-                Console.WriteLine("\n-----------------------------");
-            }
             Console.ReadKey();
         }
 
@@ -36,7 +32,8 @@ namespace LojaDeBebidas.lib
         public bool Run()
         {
             // @ Função: Testar a aplicação no contexto atual
-            // this.debugArea();
+            this.debugArea();
+     
             UIComponents.OficialLogo(AppTheme);
             Thread.Sleep(1250);
 

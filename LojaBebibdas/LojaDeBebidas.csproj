@@ -47,8 +47,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="data\ClientsModel.cs" />
+    <Compile Include="data\entidades\Client.cs" />
     <Compile Include="data\entidades\Help.cs" />
     <Compile Include="data\entidades\Product.cs" />
+    <Compile Include="data\entidades\Staff.cs" />
     <Compile Include="data\entidades\User.cs" />
     <Compile Include="data\HelpModel.cs" />
     <Compile Include="data\StockModel.cs" />

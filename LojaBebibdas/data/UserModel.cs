@@ -75,8 +75,8 @@ namespace LojaDeBebidas.data
             foreach (XElement x in xml.Elements())
             {
                 // Aqui eu crio o usuário baseado nas propriedades do arquivo
-                User user = new User(int.Parse(x.Attribute("id").Value), x.Attribute("nome").Value, x.Attribute("cpf").Value);
-
+                User user = new User(x.Attribute("nome").Value, x.Attribute("cpf").Value);
+                user.Codigo = Convert.ToInt32(x.Attribute("id").Value);
                 // Seta o email caso exista se não, seta vazio
                 user.Email = ( x.Attribute("email") != null ) ? x.Attribute("email").Value.ToString() : null;
                 user.Cidade = ( x.Attribute("cidade") != null ) ? x.Attribute("cidade").Value.ToString() : null;
@@ -92,7 +92,7 @@ namespace LojaDeBebidas.data
             return usersArray;
         }
 
-        public User Save(User user = null)
+        public User Save(User user)
         {
             XDocument xmlDoc = XDocument.Load(DATA_PATH);
             var elems = from item in xmlDoc.Elements("Users").Elements("user")
@@ -103,9 +103,9 @@ namespace LojaDeBebidas.data
             {
                 elem.Attribute("id").Value = user.Codigo.ToString();
                 elem.Attribute("nome").Value = user.Nome;
-                elem.Attribute("email").Value = user.Email;
+                elem.Attribute("email").Value = (user.Email != null) ? user.Email : "";
                 elem.Attribute("cpf").Value = user.Cpf;
-                elem.Attribute("cidade").Value = user.Cidade;
+                elem.Attribute("cidade").Value = (user.Cidade != null) ? user.Cidade : "";
             }
 
             xmlDoc.Save(DATA_PATH);
@@ -126,7 +126,7 @@ namespace LojaDeBebidas.data
              ));
 
             try {
-                xmlDoc.Save("d:/data.xml");
+                xmlDoc.Save(DATA_PATH);
                 return true;
             }
             catch (Exception ex) {

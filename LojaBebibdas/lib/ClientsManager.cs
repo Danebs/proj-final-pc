@@ -32,8 +32,9 @@ namespace LojaDeBebidas.lib
         }
 
 
-        public static void Main(string[] args)
+        public void Menu(string[] args)
         {
+            
             Cliente[] clientes = new Cliente[5];
             CPF[] cpf = new CPF[11];
 
